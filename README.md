@@ -52,12 +52,10 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|body|text|null: false|
+|body|text|null: true|
 |image|string|null: true|
 |group_id|integer|null: false, foreign_key: true|
 |user_id|integer|null: false, foreign_key: true|
-|created_at|datetime|null: false|
-|updated_at|datetime|null: false|
 
 ### Association
 
