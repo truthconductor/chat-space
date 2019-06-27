@@ -35,7 +35,7 @@
 
 - - -
 
-## menbersテーブル
+## membersテーブル
 
 |Column|Type|Options|
 |------|----|-------|
