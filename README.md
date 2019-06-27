@@ -26,7 +26,6 @@
 |------|----|-------|
 |id|integer|null: false, unique: true|
 |name|string|null: false|
-|owner_user_id|integer|null: false, foreign_key: true|
 
 ### Association
 
