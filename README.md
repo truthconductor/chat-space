@@ -24,12 +24,11 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|id|integer|null: false, unique: true|
 |name|string|null: false|
 
 ### Association
 
-- belongs_to :user
+- has_many :user, through: :members
 - has_many :members
 - has_many :messages
 
