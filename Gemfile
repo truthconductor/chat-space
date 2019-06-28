@@ -38,6 +38,9 @@ gem 'jbuilder', '~> 2.5'
 #いずれの環境でも必要
 gem 'devise'
 
+#hamlをインストール
+gem "haml-rails"
+
 #開発環境にのみ必要
 group :development, :test do
   gem 'rspec'
