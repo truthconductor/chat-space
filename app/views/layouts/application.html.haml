@@ -14,8 +14,13 @@
       .Sidebar-Header
         .Sidebar-Header__user
           ユーザー名
-          -# グループ作成アイコン
-          -# ユーザー編集アイコン
+        .Sidebar-Header__btns
+          = link_to "/", class: "Sidebar-Header--btn" do
+            %span<>
+              = fa_icon 'edit'
+          = link_to "/", class: "Sidebar-Header--btn" do
+            %span<>
+              = fa_icon 'gear'
       .Sidebar-Contents
         .ChatGroup
           .ChatGroup__name

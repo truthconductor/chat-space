@@ -1,4 +1,5 @@
 @import "./reset";
+@import "font-awesome";
 @import "./variable";
 
 .Header {
@@ -17,10 +18,26 @@
     height: 100px;
     line-height: 100px;
     padding: 0 20px;
-    color: $sidebar-color;
     background-color: #253141;
-    font-size: 16px;
-    font-weight: bold;
+    &__user
+    {
+      color: $sidebar-color;
+      font-size: 16px;
+      font-weight: bold;
+      float: left;
+    }
+
+    &__btns
+    {
+      float: right;
+    }
+    &--btn
+    {
+      color: $sidebar-color;
+      font-size: 16px;
+      text-decoration: none;
+      margin: 0 0 0 5px;
+    }
   }
   .Sidebar-Contents {
     height: calc(100vh - 100px);
