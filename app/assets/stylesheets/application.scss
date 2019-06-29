@@ -1,1 +1,11 @@
 @import "./reset";
+@import "./variable";
+
+.Header {
+  color: #ffffff;
+  background-color: #38aef0;
+  .Header-infomation
+  {
+    text-align: center;
+  }
+}
