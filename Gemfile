@@ -40,6 +40,7 @@ gem 'devise'
 
 #hamlをインストール
 gem "haml-rails"
+gem "font-awesome-rails"
 
 #開発環境、テスト環境にのみ必要
 group :development, :test do
