@@ -1,0 +1,118 @@
+* {
+  box-sizing: border-box;
+}
+.Chat {
+  float: left;
+  width: calc(100vw - 300px);
+  &--Header {
+    padding: 0 40px;
+    .Header-left {
+      float: left;
+      .ChatGroup-Name {
+        font-size: 20px;
+        color: #333333;
+        margin: 35px 0 0;
+      }
+      .ChatGroup-Member {
+        font-size: 12px;
+        margin: 15px 0 0;
+        color: #999999;
+        display: flex;
+        .member-lists {
+          display: flex;
+          .member-list {
+            list-style-type: none;
+            margin: 0 0 0 5px;
+          }
+        }
+      }
+    }
+    .Header-right {
+      float: right;
+      .Edit__btn {
+        color: $base-lightblue;
+        display: block;
+        height: 40px;
+        line-height: 40px;
+        text-decoration: none;
+        text-align: center;
+        margin: 28px 0 0 0;
+        padding: 0 20px;
+        border-style: solid;
+        border-width: 1px;
+      }
+    }
+    @include clearfix();
+  }
+
+  &--border {
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid #eeeeee;
+  }
+
+  &--Messages {
+    height: calc(100vh - 100px - 90px);
+    padding: 46px 40px;
+    background: #fafafa;
+    overflow: scroll;
+    .Message {
+      margin:  0 0 40px;
+      &--Title {
+        &__PostUser {
+          color: $chattext-color;
+          font-size: 16px;
+          font-weight: bold;
+          margin: 0 10px 0 0;
+        }
+        &__PostDate {
+          color: #999999;
+          font-size: 12px;
+        }
+      }
+      &--Text
+      {
+        margin: 10px 0 0;
+        color: $chattext-color;
+        font-size: 14px;
+      }
+    }
+  }
+
+  &--Footer {
+    width: calc(100vw - 300px);
+    height: 90px;
+    padding: 20px 40px;
+    background-color: #dddddd;
+    .Form {
+      display: flex;
+      &--TextInput {
+        margin: 0 15px 0 0;
+        padding: 0 10px;
+        width: calc(100% - 15px - 100px);
+        height: 50px;
+        line-height: 50px;
+        font-size: 16px;
+        color: $chattext-color;
+        border-style: none;
+      }
+      &--FileSelectIcon {
+        width: 0;
+        height: 50px;
+        line-height: 50px;
+        font-size: 20px;
+        position: relative;
+        right: 50px;
+        &__Display {
+          display: none;
+        }
+      }
+      &--SendButton {
+        width: 100px;
+        height: 50px;
+        color: #ffffff;
+        background-color: $base-lightblue;
+      }
+    }
+  }
+}
