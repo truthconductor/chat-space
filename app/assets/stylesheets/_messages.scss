@@ -1,3 +1,6 @@
+* {
+  box-sizing: border-box;
+}
 .Chat {
   float: left;
   width: calc(100vw - 300px);
@@ -51,7 +54,6 @@
   &--Messages {
     height: calc(100vh - 100px - 90px);
     padding: 46px 40px;
-    box-sizing: border-box;
     background: #fafafa;
     overflow: scroll;
     .Message {
@@ -81,19 +83,37 @@
     width: calc(100vw - 300px);
     height: 90px;
     padding: 20px 40px;
-    box-sizing: border-box;
     background-color: #dddddd;
     .Form {
-      &--TextInput {
+      display: flex;
+      .input-wrapper
+      {
+        position: relative;
+        width: calc(100% - 15px - 100px);
         margin: 0 15px 0 0;
-        padding: 0 10px;
-        width: calc(100% - 20px - 15px - 100px);
-        height: 50px;
-        line-height: 50px;
-        font-size: 16px;
-        color: $chattext-color;
-        border-style: none;
+        .Form--TextInput {
+          padding: 0 10px;
+          width: 100%;
+          height: 50px;
+          line-height: 50px;
+          font-size: 16px;
+          color: $chattext-color;
+          border-style: none;
+        }
       }
+      .input-wrapper:before {
+        content: "\f03e";
+        font-family: FontAwesome;
+        font-style: normal;
+        font-weight: normal;
+        text-decoration: inherit;
+        color: #000000;
+        font-size: 20px;
+        position: absolute;
+        top: 15px;
+        right: 10px;
+      }
+
       &--SendButton {
         width: 100px;
         height: 50px;

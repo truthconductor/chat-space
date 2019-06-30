@@ -34,5 +34,6 @@
         いいですね！どこに行きましょう？
   .Chat--Footer
     %form.Form
-      %input.Form--TextInput{:type => "text", :placeholder => "type a message"}<>
+      .input-wrapper<>
+        %input.Form--TextInput{:type => "text", :placeholder => "type a message"}
       %input.Form--SendButton{:type => "button", :value => "Send"}
