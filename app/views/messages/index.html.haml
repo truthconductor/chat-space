@@ -34,6 +34,9 @@
         いいですね！どこに行きましょう？
   .Chat--Footer
     %form.Form
-      .input-wrapper<>
-        %input.Form--TextInput{:type => "text", :placeholder => "type a message"}
+      %input.Form--TextInput{:type => "text", :placeholder => "type a message"}
+      %label.Form--FileSelectIcon<>
+        %span<>
+          = fa_icon 'image'
+        %input.Form--FileSelectIcon__Display{:type => "file"}
       %input.Form--SendButton{:type => "button", :value => "Send"}
