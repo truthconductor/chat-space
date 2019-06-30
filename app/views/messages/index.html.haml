@@ -1,0 +1,42 @@
+.Chat
+  .Chat--Header
+    .Header-left
+      .ChatGroup-Name
+        グループ名
+      .ChatGroup-Member
+        %p
+          Member：
+        %ul.member-lists
+          %li.member-list<
+            Aさん
+          %li.member-list<
+            Bさん
+    .Header-right
+      =link_to "/", class: "Edit__btn" do
+        Edit
+  %hr.Chat--border
+  .Chat--Messages
+    .Message
+      .Message--Title
+        %span.Message--Title__PostUser<>
+          Aさん
+        %span.Message--Title__PostDate<>
+          2019/6/30(Sun) 10:15:30
+      .Message--Text
+        こんにちは！今日一緒にランチ行きますか？
+    .Message
+      .Message--Title
+        %span.Message--Title__PostUser<>
+          Bさん
+        %span.Message--Title__PostDate<>
+          2019/6/30(Sun) 10:17:10
+      .Message--Text
+        いいですね！どこに行きましょう？
+  .Chat--Footer
+    %form.Form
+      %input.Form--TextInput{:type => "text", :placeholder => "type a message"}
+      %label.Form--FileSelectIcon<>
+        %span<>
+          = fa_icon 'image'
+        %input.Form--FileSelectIcon__Display{:type => "file"}
+      %input.Form--SendButton{:type => "button", :value => "Send"}
