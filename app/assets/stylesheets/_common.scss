@@ -1,0 +1,53 @@
+.header {
+  color: #ffffff;
+  background-color: $base-lightblue;
+  .header-infomation {
+    text-align: center;
+  }
+}
+
+.left-sidebar{
+  float: left;
+  width: 300px;
+  .sidebar-header {
+    height: 100px;
+    line-height: 100px;
+    padding: 0 20px;
+    background-color: #253141;
+    &__user {
+      color: $sidebar-color;
+      font-size: 16px;
+      font-weight: bold;
+      float: left;
+    }
+
+    &__btns {
+      float: right;
+    }
+    &--btn {
+      color: $sidebar-color;
+      font-size: 16px;
+      text-decoration: none;
+      margin: 0 0 0 5px;
+    }
+  }
+  .sidebar-contents {
+    height: calc(100vh - 100px);
+    background-color: #2f3e51;
+    padding: 0 20px;
+    .chat-group {
+      padding: 20px 0;
+      &__name {
+        color: $sidebar-color;
+        font-size: 15px;
+        font-weight: bold;
+      }
+      &__message {
+        color: $sidebar-color;
+        margin: 5px 0 0;
+        font-size: 11px;
+        font-weight: bold;
+      }
+    }
+  }
+}
