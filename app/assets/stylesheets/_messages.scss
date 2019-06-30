@@ -1,0 +1,42 @@
+.Chat {
+  float: left;
+  width: calc(100vw - 300px);
+  .Chat-Header {
+    margin: 0 40px;
+    .Header-left {
+      float: left;
+      .ChatGroup-Name {
+        font-size: 20px;
+        color: #333333;
+        margin: 35px 0 15px;
+      }
+      .ChatGroup-Member {
+        font-size: 12px;
+        color: #999999;
+        display: flex;
+        .member {
+        }
+        .member-lists {
+          display: flex;
+          .member-list {
+            list-style-type: none;
+            margin: 0 0 0 5px;
+          }
+        }
+      }
+    }
+    .Header-right {
+      float: right;
+      .Edit__btn {
+        margin: 28px 0 0 0;
+      }
+    }
+
+    @include clearfix();
+  }
+  &--border {
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid #eeeeee;
+  }
+}

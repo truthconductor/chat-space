@@ -1,12 +1,13 @@
 @import "./reset";
 @import "font-awesome";
+@import "./mixin/clearfix";
 @import "./variable";
+@import "./messages";
 
 .Header {
   color: #ffffff;
   background-color: #38aef0;
-  .Header-infomation
-  {
+  .Header-infomation {
     text-align: center;
   }
 }
@@ -19,20 +20,17 @@
     line-height: 100px;
     padding: 0 20px;
     background-color: #253141;
-    &__user
-    {
+    &__user {
       color: $sidebar-color;
       font-size: 16px;
       font-weight: bold;
       float: left;
     }
 
-    &__btns
-    {
+    &__btns {
       float: right;
     }
-    &--btn
-    {
+    &--btn {
       color: $sidebar-color;
       font-size: 16px;
       text-decoration: none;

@@ -1,16 +1,20 @@
 .Chat
   .Chat-Header
-    グループ名
-    .ChatGroup-Member
-      Member:
-      %ul
-        %li<
-          Aさん
-        %li<
-          Bさん
-    .Edit__btn
-      Edit
-  %hr
+    .Header-left
+      .ChatGroup-Name
+        グループ名
+      .ChatGroup-Member
+        %p.member
+          Member：
+        %ul.member-lists
+          %li.member-list<
+            Aさん
+          %li.member-list<
+            Bさん
+    .Header-right
+      .Edit__btn
+        Edit
+  %hr.Chat--border
   .Chat-Messages
     .Message
       投稿者
