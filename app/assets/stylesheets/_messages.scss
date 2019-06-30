@@ -1,17 +1,18 @@
 .Chat {
   float: left;
   width: calc(100vw - 300px);
-  .Chat-Header {
+  &--Header {
     margin: 0 40px;
     .Header-left {
       float: left;
       .ChatGroup-Name {
         font-size: 20px;
         color: #333333;
-        margin: 35px 0 15px;
+        margin: 35px 0 0;
       }
       .ChatGroup-Member {
         font-size: 12px;
+        margin: 15px 0 0;
         color: #999999;
         display: flex;
         .member-lists {
@@ -38,12 +39,44 @@
         border-width: 1px;
       }
     }
-
     @include clearfix();
   }
+
   &--border {
     margin: 0;
     padding: 0;
     border-top: 1px solid #eeeeee;
+  }
+
+  &--Messages {
+    margin: 46px 40px;
+    .Message {
+      margin:  40px 0 0;
+      &--Title {
+        &__PostUser {
+          color: #434A54;
+          font-size: 16px;
+          font-weight: bold;
+          margin: 0 10px 0 0;
+        }
+        &__PostDate {
+          color: #999999;
+          font-size: 12px;
+        }
+      }
+      &--Text
+      {
+        margin: 10px 0 0;
+        color: #434A54;
+        font-size: 14px;
+      }
+    }
+  }
+
+  &--Footer
+  {
+    height: 70px;
+    position: absolute;
+    bottom: 0px;
   }
 }

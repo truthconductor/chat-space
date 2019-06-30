@@ -1,5 +1,5 @@
 .Chat
-  .Chat-Header
+  .Chat--Header
     .Header-left
       .ChatGroup-Name
         グループ名
@@ -15,12 +15,24 @@
       =link_to "/", class: "Edit__btn" do
         Edit
   %hr.Chat--border
-  .Chat-Messages
+  .Chat--Messages
     .Message
-      投稿者
-      投稿日
-      テキスト
-  .Chat-Footer
+      .Message--Title
+        %span.Message--Title__PostUser<>
+          投稿者A
+        %span.Message--Title__PostDate<>
+          2019/6/30(Sun) 10:15:30
+      .Message--Text
+        こんにちは！今日一緒にランチ行きますか？
+    .Message
+      .Message--Title
+        %span.Message--Title__PostUser<>
+          投稿者B
+        %span.Message--Title__PostDate<>
+          2019/6/30(Sun) 10:17:10
+      .Message--Text
+        いいですね！どこに行きましょう？
+  .Chat--Footer
     %form
       %input
       %button
