@@ -4,7 +4,7 @@
       .ChatGroup-Name
         グループ名
       .ChatGroup-Member
-        %p.member
+        %p
           Member：
         %ul.member-lists
           %li.member-list<
@@ -12,7 +12,7 @@
           %li.member-list<
             Bさん
     .Header-right
-      .Edit__btn
+      =link_to "/", class: "Edit__btn" do
         Edit
   %hr.Chat--border
   .Chat-Messages

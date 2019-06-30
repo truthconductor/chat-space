@@ -14,8 +14,6 @@
         font-size: 12px;
         color: #999999;
         display: flex;
-        .member {
-        }
         .member-lists {
           display: flex;
           .member-list {
@@ -28,7 +26,16 @@
     .Header-right {
       float: right;
       .Edit__btn {
+        color: $base-lightblue;
+        display: block;
+        height: 40px;
+        line-height: 40px;
+        text-decoration: none;
+        text-align: center;
         margin: 28px 0 0 0;
+        padding: 0 20px;
+        border-style: solid;
+        border-width: 1px;
       }
     }
 
