@@ -19,7 +19,7 @@
     .Message
       .Message--Title
         %span.Message--Title__PostUser<>
-          投稿者A
+          Aさん
         %span.Message--Title__PostDate<>
           2019/6/30(Sun) 10:15:30
       .Message--Text
@@ -27,13 +27,12 @@
     .Message
       .Message--Title
         %span.Message--Title__PostUser<>
-          投稿者B
+          Bさん
         %span.Message--Title__PostDate<>
           2019/6/30(Sun) 10:17:10
       .Message--Text
         いいですね！どこに行きましょう？
   .Chat--Footer
-    %form
-      %input
-      %button
-        SEND
+    %form.Form
+      %input.Form--TextInput{:type => "text", :placeholder => "type a message"}<>
+      %input.Form--SendButton{:type => "button", :value => "Send"}

@@ -2,7 +2,7 @@
   float: left;
   width: calc(100vw - 300px);
   &--Header {
-    margin: 0 40px;
+    padding: 0 40px;
     .Header-left {
       float: left;
       .ChatGroup-Name {
@@ -49,15 +49,16 @@
   }
 
   &--Messages {
+    height: calc(100vh - 100px - 90px);
     padding: 46px 40px;
     box-sizing: border-box;
-    height: calc(100vh - 100px);
     background: #fafafa;
+    overflow: scroll;
     .Message {
       margin:  0 0 40px;
       &--Title {
         &__PostUser {
-          color: #434A54;
+          color: $chattext-color;
           font-size: 16px;
           font-weight: bold;
           margin: 0 10px 0 0;
@@ -70,19 +71,35 @@
       &--Text
       {
         margin: 10px 0 0;
-        color: #434A54;
+        color: $chattext-color;
         font-size: 14px;
       }
     }
   }
 
-  &--Footer
-  {
-    height: 70px;
-    width: 100%;
-    bottom: 0;
-    position: fixed;
-    z-index: 1;
-    margin: 0 40px;
+  &--Footer {
+    width: calc(100vw - 300px);
+    height: 90px;
+    padding: 20px 40px;
+    box-sizing: border-box;
+    background-color: #dddddd;
+    .Form {
+      &--TextInput {
+        margin: 0 15px 0 0;
+        padding: 0 10px;
+        width: calc(100% - 20px - 15px - 100px);
+        height: 50px;
+        line-height: 50px;
+        font-size: 16px;
+        color: $chattext-color;
+        border-style: none;
+      }
+      &--SendButton {
+        width: 100px;
+        height: 50px;
+        color: #ffffff;
+        background-color: $base-lightblue;
+      }
+    }
   }
 }
