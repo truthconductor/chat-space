@@ -1,9 +1,9 @@
-.Chat
-  .Chat--Header
-    .Header-left
-      .ChatGroup-Name
+.chat
+  .chat--header
+    .header-left
+      .chat-group-name
         グループ名
-      .ChatGroup-Member
+      .chat-group-member
         %p
           Member：
         %ul.member-lists
@@ -11,32 +11,32 @@
             Aさん
           %li.member-list<
             Bさん
-    .Header-right
-      =link_to "/", class: "Edit__btn" do
+    .header-right
+      =link_to "/", class: "edit__btn" do
         Edit
-  %hr.Chat--border
-  .Chat--Messages
-    .Message
-      .Message--Title
-        %span.Message--Title__PostUser<>
+  %hr.chat--border
+  .chat--messages
+    .message
+      .message--title
+        %span.message--title__post-user<>
           Aさん
-        %span.Message--Title__PostDate<>
+        %span.message--title__post-date<>
           2019/6/30(Sun) 10:15:30
-      .Message--Text
+      .message--text
         こんにちは！今日一緒にランチ行きますか？
-    .Message
-      .Message--Title
-        %span.Message--Title__PostUser<>
+    .message
+      .message--title
+        %span.message--title__post-user<>
           Bさん
-        %span.Message--Title__PostDate<>
+        %span.message--title__post-date<>
           2019/6/30(Sun) 10:17:10
-      .Message--Text
+      .message--text
         いいですね！どこに行きましょう？
-  .Chat--Footer
-    %form.Form
-      %input.Form--TextInput{:type => "text", :placeholder => "type a message"}
-      %label.Form--FileSelectIcon<>
+  .chat--footer
+    %form.form
+      %input.form--text-input{:type => "text", :placeholder => "type a message"}
+      %label.form--file-select-icon<>
         %span<>
           = fa_icon 'image'
-        %input.Form--FileSelectIcon__Display{:type => "file"}
-      %input.Form--SendButton{:type => "button", :value => "Send"}
+        %input.form--file-select-icon__display{:type => "file"}
+      %input.form--send-button{:type => "button", :value => "Send"}
