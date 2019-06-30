@@ -4,18 +4,18 @@
 @import "./variable";
 @import "./messages";
 
-.Header {
+.header {
   color: #ffffff;
   background-color: $base-lightblue;
-  .Header-infomation {
+  .header-infomation {
     text-align: center;
   }
 }
 
-.Left-Sidebar{
+.left-sidebar{
   float: left;
   width: 300px;
-  .Sidebar-Header {
+  .sidebar-header {
     height: 100px;
     line-height: 100px;
     padding: 0 20px;
@@ -37,11 +37,11 @@
       margin: 0 0 0 5px;
     }
   }
-  .Sidebar-Contents {
+  .sidebar-contents {
     height: calc(100vh - 100px);
     background-color: #2f3e51;
     padding: 0 20px;
-    .ChatGroup {
+    .chat-group {
       padding: 20px 0;
       &__name {
         color: $sidebar-color;
