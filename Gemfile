@@ -35,11 +35,20 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+#いずれの環境でも必要
+gem 'devise'
+
+#hamlをインストール
+gem "haml-rails"
+gem "font-awesome-rails"
+
+#開発環境、テスト環境にのみ必要
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
 end
 
+#開発環境にのみ必要
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'web-console', '>= 3.3.0'
