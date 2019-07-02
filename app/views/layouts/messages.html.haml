@@ -18,9 +18,10 @@
           = link_to "/", class: "sidebar-header--btn" do
             %span<>
               = fa_icon 'edit'
-          = link_to "/", class: "sidebar-header--btn" do
-            %span<>
-              = fa_icon 'gear'
+          - if user_signed_in?
+            = link_to "/users/#{current_user.id}/edit", method: :get, class: "sidebar-header--btn" do
+              %span<>
+                = fa_icon 'cog'
       .sidebar-contents
         .chat-group
           .chat-group__name
