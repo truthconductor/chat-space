@@ -7,29 +7,4 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
-    .header
-      .header-infomation
-        グループを作成しました
-    .left-sidebar
-      .sidebar-header
-        .sidebar-header__user
-          ユーザー名
-        .sidebar-header__btns
-          = link_to "/", class: "sidebar-header--btn" do
-            %span<>
-              = fa_icon 'edit'
-          = link_to "/", class: "sidebar-header--btn" do
-            %span<>
-              = fa_icon 'gear'
-      .sidebar-contents
-        .chat-group
-          .chat-group__name
-            グループ名1
-          .chat-group__message
-            初回メッセージ1
-        .chat-group
-          .chat-group__name
-            グループ名2
-          .chat-group__message
-            初回メッセージ2
     = yield
