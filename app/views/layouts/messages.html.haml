@@ -1,0 +1,33 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title ChatSpace
+    = csrf_meta_tags
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  %body
+    = render 'layouts/flash_messages'
+    .left-sidebar
+      .sidebar-header
+        %h3.sidebar-header__user
+          = current_user.name
+        .sidebar-header__btns
+          = link_to "/", class: "sidebar-header--btn" do
+            %span<>
+              = fa_icon 'edit'
+          = link_to edit_user_path(current_user.id), method: :get, class: "sidebar-header--btn" do
+            %span<>
+              = fa_icon 'cog'
+      .sidebar-contents
+        .chat-group
+          .chat-group__name
+            グループ名1
+          .chat-group__message
+            初回メッセージ1
+        .chat-group
+          .chat-group__name
+            グループ名2
+          .chat-group__message
+            初回メッセージ2
+    = yield
