@@ -34,9 +34,9 @@
         いいですね！どこに行きましょう？
   .chat--footer
     %form.form
-      %input.form--text-input{:type => "text", :placeholder => "type a message"}
+      %input.form--text-input{type: "text", placeholder: "type a message"}
       %label.form--file-select-icon<>
         %span<>
           = fa_icon 'image'
-        %input.form--file-select-icon__display{:type => "file"}
-      %input.form--send-button{:type => "button", :value => "Send"}
+        %input.form--file-select-icon__display{type: "file"}
+      %input.form--send-button{type: "button", value: "Send"}
