@@ -7,9 +7,7 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
-    .header
-      .header-infomation
-        グループを作成しました
+    = render 'layouts/flash_messages'
     .left-sidebar
       .sidebar-header
         %h3.sidebar-header__user
