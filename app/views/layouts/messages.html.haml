@@ -13,7 +13,7 @@
         %h3.sidebar-header__user
           = current_user.name
         .sidebar-header__btns
-          = link_to "/", class: "sidebar-header--btn" do
+          = link_to new_group_path, class: "sidebar-header--btn" do
             %span<>
               = fa_icon 'edit'
           = link_to edit_user_path(current_user.id), method: :get, class: "sidebar-header--btn" do
