@@ -1,0 +1,18 @@
+.left-sidebar
+  .sidebar-header
+    %h3.sidebar-header__user
+      = current_user.name
+    .sidebar-header__btns
+      = link_to new_group_path, class: "sidebar-header--btn" do
+        %span<>
+          = fa_icon 'edit'
+      = link_to edit_user_path(current_user.id), method: :get, class: "sidebar-header--btn" do
+        %span<>
+          = fa_icon 'cog'
+  .sidebar-contents
+    - current_user.groups.each do |group|
+      .chat-group
+        .chat-group__name
+          = group.name
+        .chat-group__message
+          初回メッセージ1
