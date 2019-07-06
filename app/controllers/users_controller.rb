@@ -4,16 +4,15 @@ class UsersController < ApplicationController
   end
 
   def update
-    
     if current_user.update(user_params)
-      redirect_to controller: 'messages', action: 'index'
+      redirect_to controller: 'groups', action: 'index'
     else
       render :edit
     end
   end
 
   private
-  
+
   def user_params
     params.require(:user).permit(:name, :email)
   end
