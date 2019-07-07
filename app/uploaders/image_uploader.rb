@@ -21,8 +21,8 @@ class ImageUploader < CarrierWave::Uploader::Base
     %w(jpg jpeg gif png)
   end
 
-  # 縦横比を維持したまま800x800にリサイズする
-  process resize_to_fit: [800, 800]
+  # 縦横比を維持したまま400x400にリサイズする
+  process resize_to_fit: [400, 400]
 
   # 変換したファイルのファイル名の規則
   def filename

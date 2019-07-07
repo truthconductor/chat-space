@@ -1,0 +1,12 @@
+.message
+  .message--title
+    %span.message--title__post-user<>
+      = message.user.name
+    %span.message--title__post-date<>
+      = message.created_at.strftime("%Y/%m/%d(%a) %H:%M:%S")
+    - if message.body.present?
+      .message--text
+        = message.body
+    - if message.image.present?
+      .message--image
+        = image_tag message.image.url
