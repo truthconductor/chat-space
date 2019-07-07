@@ -15,18 +15,7 @@
         Edit
   %hr.chat--border
   .chat--messages
-    - @messages.each do |message|
-      .message
-        .message--title
-          %span.message--title__post-user<>
-            = message.user.name
-          %span.message--title__post-date<>
-            = message.created_at
-        .message--text
-          - if message.body
-            = message.body
-          - if message.image
-            = image_tag message.image
+    = render partial: 'message', collection: @messages
   .chat--footer
     = form_for [@group, @message], html: { class:"form" } do |f|
       = f.text_field :body, class: "form--text-input", placeholder: "type a message"
