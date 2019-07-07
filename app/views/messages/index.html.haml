@@ -23,7 +23,10 @@
           %span.message--title__post-date<>
             = message.created_at
         .message--text
-          = message.body
+          - if message.body
+            = message.body
+          - if message.image
+            = image_tag message.image
   .chat--footer
     = form_for [@group, @message], html: { class:"form" } do |f|
       = f.text_field :body, class: "form--text-input", placeholder: "type a message"
