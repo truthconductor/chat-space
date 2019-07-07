@@ -2,36 +2,28 @@
   .chat--header
     .header-left
       .chat-group-name
-        グループ名
+        = @group.name
       .chat-group-member
         %p
           Member：
         %ul.member-lists
-          %li.member-list<
-            Aさん
-          %li.member-list<
-            Bさん
+          - @group.users.each do |user|
+            %li.member-list<
+              = user.name
     .header-right
       =link_to "/", class: "edit__btn" do
         Edit
   %hr.chat--border
   .chat--messages
-    .message
-      .message--title
-        %span.message--title__post-user<>
-          Aさん
-        %span.message--title__post-date<>
-          2019/6/30(Sun) 10:15:30
-      .message--text
-        こんにちは！今日一緒にランチ行きますか？
-    .message
-      .message--title
-        %span.message--title__post-user<>
-          Bさん
-        %span.message--title__post-date<>
-          2019/6/30(Sun) 10:17:10
-      .message--text
-        いいですね！どこに行きましょう？
+    - @messages.each do |message|
+      .message
+        .message--title
+          %span.message--title__post-user<>
+            = message.user.name
+          %span.message--title__post-date<>
+            = message.created_at
+        .message--text
+          = message.body
   .chat--footer
     = form_for [@group, @message], html: { class:"form" } do |f|
       = f.text_field :body, class: "form--text-input", placeholder: "type a message"

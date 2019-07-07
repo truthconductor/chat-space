@@ -2,6 +2,7 @@ class MessagesController < ApplicationController
   before_action :set_group, only: [:index, :create]
   def index
     @message = Message.new
+    @messages = @group.messages.includes(:user)
   end
 
   def create
@@ -17,6 +18,7 @@ class MessagesController < ApplicationController
     if @message.save
       redirect_to group_messages_path(@group), notice: "メッセージを送信しました"
     else
+      @messages = @group.messages.includes(:user)
       flash.now[:alert] = "メッセージを送信できませんでした。"
       render :index
     end
