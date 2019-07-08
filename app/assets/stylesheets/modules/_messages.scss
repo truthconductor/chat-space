@@ -34,7 +34,6 @@
         display: block;
         height: 40px;
         line-height: 40px;
-        text-decoration: none;
         text-align: center;
         margin: 28px 0 0 0;
         padding: 0 20px;
@@ -86,10 +85,15 @@
     background-color: #dddddd;
     .form {
       display: flex;
+
+      .field_with_errors {
+        margin: 0 15px 0 0;
+        width: 100%;
+      }
       &--text-input {
         margin: 0 15px 0 0;
         padding: 0 10px;
-        width: calc(100% - 15px - 100px);
+        width: 100%;
         height: 50px;
         line-height: 50px;
         font-size: 16px;

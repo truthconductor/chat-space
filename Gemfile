@@ -41,6 +41,8 @@ gem 'devise'
 #hamlをインストール
 gem "haml-rails"
 gem "font-awesome-rails"
+gem 'carrierwave', '>= 2.0.0.rc', '< 3.0'
+gem 'mini_magick'
 
 #開発環境、テスト環境にのみ必要
 group :development, :test do
