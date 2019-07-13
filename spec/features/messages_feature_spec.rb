@@ -6,7 +6,7 @@ feature 'message', type: :feature do
   let(:user) { create(:user) }
 
   scenario 'post message' do
-    # ログイン前には送信ボタンがない
+    # ログイン前には送信ボタンがない事を確認
     visit group_messages_path(group)
     expect(page).to have_no_content('Send')
 
@@ -16,15 +16,14 @@ feature 'message', type: :feature do
     fill_in 'user_password', with: user.password
     find('input[name="commit"]').click
 
-    # Chat画面移動確認
+    # ログインに成功したか確認
     expect(page).to have_content('ログインしました')
-    # ログインに成功したか
     expect(current_path).to eq group_messages_path(group)
 
-    # Sendボタンがあるか
+    # Sendボタンがあるか確認
     expect(page).to have_button('Send')
 
-    # Messageの投稿
+    # Messageの投稿に成功するか確認
     expect {
       fill_in "form--text-input", with: "メッセージテスト"
       attach_file "form--file-select-icon__display", "#{Rails.root}/public/images/test_image.jpg"
