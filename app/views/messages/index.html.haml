@@ -17,10 +17,10 @@
   .chat--messages
     = render partial: 'message', collection: @messages
   .chat--footer
-    = form_for [@group, @message], html: { class:"form" } do |f|
-      = f.text_field :body, class: "form--text-input", placeholder: "type a message"
-      %label.form--file-select-icon<>
+    = form_for [@group, @message], html: { id:"form" } do |f|
+      = f.text_field :body, id: "form--text-input", placeholder: "type a message"
+      %label#form--file-select-icon<>
         %span<>
           = fa_icon 'image'
-        = f.file_field :image, class: "form--file-select-icon__display"
-      = f.submit "Send", class: "form--send-button"
+        = f.file_field :image, id: "form--file-select-icon__display"
+      = f.submit "Send", id: "form--send-button"
