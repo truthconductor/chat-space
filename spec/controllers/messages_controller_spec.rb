@@ -36,4 +36,61 @@ describe MessagesController, type: :controller do
       end
     end
   end
+
+  describe "Post #create" do
+    let(:params) { { group_id: group.id, user_id: user.id, message: attributes_for(:message) } }
+
+    context "is user login" do
+      #example(it)の前に実行
+      before do
+        login_user user
+      end
+
+      context "messge can save" do
+        subject {
+          post :create,
+          params: params
+        }
+
+        it "count up message" do
+          expect{ subject }.to change(Message, :count).by(1)
+        end
+
+        it "redirect the group_messages_path" do
+          subject
+          expect(response).to redirect_to(group_messages_path(group))
+        end
+      end
+
+      context "message can not save" do
+        let(:invalid_params) { { group_id: group.id, user_id: user.id, message: attributes_for(:message, body: nil, image: nil) } }
+
+        subject {
+          post :create,
+          params: invalid_params
+        }
+
+        it "dose not count up message" do
+          expect{ subject }.not_to change(Message, :count)
+        end
+
+        it "render the index flash alert" do
+          subject
+          expect(response).to render_template :index
+        end
+      end
+    end
+
+    context "is not user login" do
+      subject {
+        post :create,
+        params: params
+      }
+
+      it "redirect the new_user_session_path" do
+        subject
+        expect(response).to redirect_to(new_user_session_path)
+      end
+    end
+  end
 end
