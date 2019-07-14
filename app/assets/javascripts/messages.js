@@ -49,6 +49,12 @@ $(function() {
       $(".chat--messages").append(html);
     }
   }
+
+  //jqueryで無効化したSendボタンの有効化
+  function send_button_enable() {
+    $('#form--send-button').prop('disabled', false);
+  }
+
   $(".new_message").on("submit", function(e) {
     e.preventDefault();
     var formData = new FormData(this);
@@ -73,13 +79,13 @@ $(function() {
         { duration: 2000 }
       );
       //Sendボタンの有効化
-      $('#form--send-button').prop('disabled', false);
+      send_button_enable();
     })
     .fail(function()
     {
       alert("エラー");
       //Sendボタンの有効化
-      $('#form--send-button').prop('disabled', false);
+      send_button_enable();
     });
   });
 })
