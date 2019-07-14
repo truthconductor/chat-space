@@ -65,9 +65,11 @@ $(function() {
       //HTML要素を作成して追加
       buildMessage(message);
       $("#form--text-input").val("");
-      //スクロール
+      //現在位置+最終コメント要素の相対位置にスクロール
+      var currentScrollTop = $(".chat--messages").scrollTop()
+      var scrollSize = $(".message").last().offset().top
       $(".chat--messages").animate(
-        { scrollTop:$(".message").last().offset().top },
+        { scrollTop: currentScrollTop + scrollSize },
         { duration: 2000 }
       );
       //Sendボタンの有効化
