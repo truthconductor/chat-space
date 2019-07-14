@@ -64,15 +64,20 @@ $(function() {
     .done(function(message) {
       //HTML要素を作成して追加
       buildMessage(message);
+      $("#form--text-input").val("");
       //スクロール
       $(".chat--messages").animate(
         { scrollTop:$(".message").last().offset().top },
         { duration: 2000 }
       );
+      //Sendボタンの有効化
+      $('#form--send-button').prop('disabled', false);
     })
     .fail(function()
     {
       alert("エラー");
+      //Sendボタンの有効化
+      $('#form--send-button').prop('disabled', false);
     });
   });
 })
