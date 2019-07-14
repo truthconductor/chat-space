@@ -30,7 +30,7 @@ $(function() {
                 </div>
               </div>`;
     }
-    else if(message.image)
+    else if(message.image.url)
     {
       html = `<div class="message">
                 <div class="message--title">
