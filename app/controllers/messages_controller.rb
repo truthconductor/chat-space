@@ -9,18 +9,31 @@ class MessagesController < ApplicationController
     @message = @group.messages.new(message_param)
     # バリデーション
     unless @message.valid?
-      flash.now[:alert] = "メッセージを入力してください。"
-      render :index
+      respond_to do |format|
+        format.html {
+          flash.now[:alert] = "メッセージを入力してください"
+          render :index
+        }
+        format.json { }
+      end
       return
     end
 
     #メッセージ保存（送信）
     if @message.save
-      redirect_to group_messages_path(@group), notice: "メッセージを送信しました"
+      respond_to do |format|
+        format.html { redirect_to group_messages_path(@group), notice: "メッセージを送信しました"}
+        format.json { }
+      end
     else
       @messages = @group.messages.includes(:user)
-      flash.now[:alert] = "メッセージを送信できませんでした。"
-      render :index
+      respond_to do |format|
+        format.html {
+          flash.now[:alert] = "メッセージ送信エラー"
+          render :index
+        }
+        format.json { }
+      end
     end
   end
 
