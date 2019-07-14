@@ -3,7 +3,7 @@ $(function() {
   function buildMessage(message)
   {
     var html = null;
-    if(message.body && message.image)
+    if(message.body && message.image.url)
     {
       html = `<div class="message">
                 <div class="message--title">
@@ -48,7 +48,6 @@ $(function() {
       // 作成したHTMLをメッセージ画面の一番下に追加する
       $(".chat--messages").append(html);
     }
-
   }
   $(".new_message").on("submit", function(e) {
     e.preventDefault();
@@ -63,7 +62,13 @@ $(function() {
       contentType: false
     })
     .done(function(message) {
+      //HTML要素を作成して追加
       buildMessage(message);
+      //スクロール
+      $(".chat--messages").animate(
+        { scrollTop:$(".message").last().offset().top },
+        { duration: 2000 }
+      );
     })
     .fail(function()
     {
