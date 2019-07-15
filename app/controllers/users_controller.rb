@@ -2,7 +2,9 @@ class UsersController < ApplicationController
 
   def index
     # 検索フォームのキーワードでユーザーを検索
-    @users = User.where('name LIKE(?)', "%#{params[:keyword]}%").order('id ASC').limit(20)
+    @users = User.where('name LIKE(?)', "%#{params[:keyword]}%")
+                 .where().not(id: current_user.id)
+                 .order('id ASC').limit(20)
     respond_to do |format|
       format.json { }
     end
