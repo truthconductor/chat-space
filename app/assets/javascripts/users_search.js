@@ -17,10 +17,10 @@ $(function() {
 
   function buildGroupMenber(user)
   {
-    var html = `<div class='chat-group-user clearfix js-chat-member' id='chat-group-user-8'>
-                  <input name='group[user_ids][]' type='hidden' value='${user.id}'>
-                  <p class='chat-group-user__name'>${user.name}</p>
-                  <div class='user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn'>削除</div>
+    var html = `<div class="chat-group-user clearfix js-chat-member" id="chat-group-user-8">
+                  <input name="group[user_ids][]" type="hidden" value="${user.id}">
+                  <p class="chat-group-user__name">${user.name}</p>
+                  <div class="user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn">削除</div>
                 </div>`
     $(".group-member").append(html);
   }
@@ -51,6 +51,7 @@ $(function() {
       });
     });
 
+    //追加ボタンをクリック
     $(".user-search-result").on("click",".chat-group-user__btn.chat-group-user__btn--add",function() {
       //追加ボタンの情報を取得
       var user = { "id" : $(this).attr("data-user-id"),
@@ -61,6 +62,7 @@ $(function() {
       $(this).parent().remove();
     });
 
+    //削除ボタンをクリック
     $(".group-member").on("click",".chat-group-user__btn.user-search-remove",function() {
       //クリックしたチャットメンバーをグループ一覧から消去
       $(this).parent().remove();
