@@ -26,12 +26,16 @@
         チャットメンバー
     .chat-group-form__field--right
       .group-member
+        %div{class: "chat-group-user clearfix js-chat-member", id: "chat-group-user-8"}
+          %input{ name: "group[user_ids][]", type: "hidden", value: current_user.id}
+          %p{class: "chat-group-user__name"}
+            = current_user.name
         - group.members.each do |member|
-          %div{class: "chat-group-user clearfix js-chat-member", id: "chat-group-user-8"}
-            %input{ name: "group[user_ids][]", type: "hidden", value: member.user.id}
-            %p{class: "chat-group-user__name"}
-              = member.user.name
-            - if current_user.id != member.user.id
+          - if current_user.id != member.user.id
+            %div{class: "chat-group-user clearfix js-chat-member", id: "chat-group-user-8"}
+              %input{ name: "group[user_ids][]", type: "hidden", value: member.user.id}
+              %p{class: "chat-group-user__name"}
+                = member.user.name
               %dic{class: "user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn"}
                 削除
 
