@@ -22,5 +22,12 @@
 
   .chat-group-form__field.clearfix
     .chat-group-form__field--left
+      %label.chat-group-form__label
+        チャットメンバー
+    .chat-group-form__field--right
+      .group-member
+
+  .chat-group-form__field.clearfix
+    .chat-group-form__field--left
     .chat-group-form__field--right
       = f.submit "Send", class: "chat-group-form__action-btn"
