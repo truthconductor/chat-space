@@ -112,6 +112,11 @@ $(function() {
       console.log('error');
     });
   };
-  // 一定期間ごとにメッセージ更新を確認
-  setInterval(reloadMessages, 5000);
+  // 一定期間ごとにメッセージ更新を確認。turbolinksの影響で全てのページで発生するため、
+  // /groups/:id/messages となるパスでのみ実行できるようにする。
+  var pattern = /^\/groups\/\d+\/messages$/;
+  var reg = new RegExp(pattern);
+  if(reg.test(location.pathname)) {
+    setInterval(reloadMessages,5000)
+  }
 })
