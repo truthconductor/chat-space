@@ -20,7 +20,7 @@ $(function() {
       </div>`
     }
 
-    html = `<div class="message">
+    html = `<div class="message" data-id="${message.id}">
               <div class="message--title">
                 <span class="message--title__post-user">${message.user_name}</span>
                 <span class="message--title__post-date">${message.create_date}</span>
@@ -39,6 +39,18 @@ $(function() {
   //jqueryで無効化したSendボタンの有効化
   function send_button_enable() {
     $('#form--send-button').prop('disabled', false);
+  }
+
+  //最新メッセージにスクロール
+  function scroll_latest_message(time)
+  {
+    //現在位置+最終コメント要素の相対位置にスクロール
+    var currentScrollTop = $(".chat--messages").scrollTop()
+    var scrollSize = $(".message").last().offset().top
+    $(".chat--messages").animate(
+      { scrollTop: currentScrollTop + scrollSize },
+      { duration: time }
+    );
   }
 
   $(".new_message").on("submit", function(e) {
@@ -60,13 +72,8 @@ $(function() {
       $("#form--text-input").val("");
       //画像ファイルクリア
       $("#form--file-select-icon__display").val("");
-      //現在位置+最終コメント要素の相対位置にスクロール
-      var currentScrollTop = $(".chat--messages").scrollTop()
-      var scrollSize = $(".message").last().offset().top
-      $(".chat--messages").animate(
-        { scrollTop: currentScrollTop + scrollSize },
-        { duration: 2000 }
-      );
+      //最新メッセージにスクロール
+      scroll_latest_message(1000)
       //Sendボタンの有効化
       send_button_enable();
     })
@@ -92,11 +99,19 @@ $(function() {
       data: {last_message_id: last_message_id}
     })
     .done(function(messages) {
-      console.log('success');
+      if (messages.length !== 0) {
+        //配列messagesの中身一つ一つを取り出し、HTMLに変換したものをメッセージに追加する
+        messages.forEach(function(message) {
+          buildMessage(message);
+        });
+        //最新メッセージにスクロール
+        scroll_latest_message(1000)
+      }
     })
     .fail(function() {
       console.log('error');
     });
   };
+  // 一定期間ごとにメッセージ更新を確認
   setInterval(reloadMessages, 5000);
 })
