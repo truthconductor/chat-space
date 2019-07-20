@@ -1,4 +1,5 @@
 $(function() {
+
   // 個々のmessageを表示するHTMLを作成
   function buildMessage(message) {
     var html = null;
@@ -76,4 +77,26 @@ $(function() {
       send_button_enable();
     });
   });
+
+  //メッセージの自動更新
+  var reloadMessages = function() {
+    //カスタムデータ属性を利用し、ブラウザに表示されている最新メッセージのidを取得
+    last_message_id = $(".message").last().data("id")
+    $.ajax({
+      //ルーティングで設定した通りのURLを指定
+      url: location.pathname.substring(0,location.pathname.lastIndexOf('/')) + "/api/messages",
+      //ルーティングで設定した通りhttpメソッドをgetに指定
+      type: 'GET',
+      dataType: 'json',
+      //dataオプションでリクエストに値を含める
+      data: {last_message_id: last_message_id}
+    })
+    .done(function(messages) {
+      console.log('success');
+    })
+    .fail(function() {
+      console.log('error');
+    });
+  };
+  setInterval(reloadMessages, 5000);
 })
