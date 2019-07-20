@@ -68,10 +68,8 @@ $(function() {
     .done(function(message) {
       //HTML要素を作成して追加
       buildMessage(message);
-      //入力エリアクリア
-      $("#form--text-input").val("");
-      //画像ファイルクリア
-      $("#form--file-select-icon__display").val("");
+      //formリセット
+      $("#form")[0].reset();
       //最新メッセージにスクロール
       scroll_latest_message(1000)
       //Sendボタンの有効化
