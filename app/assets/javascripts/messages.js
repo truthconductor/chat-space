@@ -109,7 +109,6 @@ $(function() {
       }
     })
     .fail(function() {
-      console.log('error');
     });
   };
   // 一定期間ごとにメッセージ更新を確認。turbolinksの影響で全てのページで発生するため、
