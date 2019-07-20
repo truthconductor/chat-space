@@ -1,50 +1,35 @@
 $(function() {
   // 個々のmessageを表示するHTMLを作成
-  function buildMessage(message)
-  {
+  function buildMessage(message) {
     var html = null;
-    if(message.body && message.image.url)
-    {
-      html = `<div class="message">
-                <div class="message--title">
-                  <span class="message--title__post-user">${message.user_name}</span>
-                  <span class="message--title__post-date">${message.create_date}</span>
-                  <div class="message--text">
-                    ${message.body}
-                  </div>
-                  <div class="message--image">
-                    <img src="${message.image.url}">
-                  </div>
-                </div>
-              </div>`;
-    }
-    else if(message.body)
-    {
-      html = `<div class="message">
-                <div class="message--title">
-                  <span class="message--title__post-user">${message.user_name}</span>
-                  <span class="message--title__post-date">${message.create_date}</span>
-                  <div class="message--text">
-                    ${message.body}
-                  </div>
-                </div>
-              </div>`;
-    }
-    else if(message.image.url)
-    {
-      html = `<div class="message">
-                <div class="message--title">
-                  <span class="message--title__post-user">${message.user_name}</span>
-                  <span class="message--title__post-date">${message.create_date}</span>
-                  <div class="message--image">
-                    <img src="${message.image.url}">
-                  </div>
-                </div>
-              </div>`;
+    var message_text_html = "";
+    var message_image_html = "";
+
+    if(message.body) {
+      message_text_html =
+      `<div class="message--text">
+        ${message.body}
+      </div>`
     }
 
-    if(html)
-    {
+    if(message.image.url) {
+      message_image_html =
+      `<div class="message--image">
+        <img src="${message.image.url}">
+      </div>`
+    }
+
+    html = `<div class="message">
+              <div class="message--title">
+                <span class="message--title__post-user">${message.user_name}</span>
+                <span class="message--title__post-date">${message.create_date}</span>
+                ${message_text_html}
+                ${message_image_html}
+                </div>
+              </div>
+            </div>`
+
+    if(html) {
       // 作成したHTMLをメッセージ画面の一番下に追加する
       $(".chat--messages").append(html);
     }
@@ -70,7 +55,10 @@ $(function() {
     .done(function(message) {
       //HTML要素を作成して追加
       buildMessage(message);
+      //入力エリアクリア
       $("#form--text-input").val("");
+      //画像ファイルクリア
+      $("#form--file-select-icon__display").val("");
       //現在位置+最終コメント要素の相対位置にスクロール
       var currentScrollTop = $(".chat--messages").scrollTop()
       var scrollSize = $(".message").last().offset().top
