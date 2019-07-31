@@ -75,8 +75,7 @@ $(function() {
       //Sendボタンの有効化
       send_button_enable();
     })
-    .fail(function()
-    {
+    .fail(function(jqXHR, textStatus, errorThrown) {
       alert("エラー");
       //Sendボタンの有効化
       send_button_enable();

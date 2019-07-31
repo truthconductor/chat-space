@@ -8,6 +8,10 @@ set :application, 'chat-space'
 # どのリポジトリからアプリをpullするかを指定する
 set :repo_url,  'git@github.com:truthconductor/chat-space.git'
 
+# デプロイするブランチの設定
+# bundle exec cap production deploy BRANCH="ブランチ名で指定したブランチをデプロイ"
+set :branch, ENV['BRANCH'] || "master"
+
 # バージョンが変わっても共通で参照するディレクトリを指定
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system', 'public/uploads')
 
